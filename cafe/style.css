@@ -1,0 +1,277 @@
+:root {
+  --bg: #faf6f0;
+  --text: #3b2f2a;
+  --accent: #8b4513;
+  --section-bg: #f0e6d8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  margin: 0 0 0.6em;
+}
+
+a {
+  color: inherit;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -100%;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+  z-index: 20;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ヘッダー */
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--bg);
+}
+
+.logo {
+  font-family: "Noto Serif JP", serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.menu-toggle {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.global-nav {
+  display: none;
+}
+
+.global-nav.is-open {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--section-bg);
+  z-index: 10;
+}
+
+.global-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 12px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.global-nav a {
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .global-nav,
+  .global-nav.is-open {
+    display: block;
+    position: static;
+    border: none;
+    background: none;
+  }
+
+  .global-nav ul {
+    flex-direction: row;
+    padding: 0;
+    gap: 32px;
+  }
+}
+
+/* ヒーロー */
+.hero {
+  text-align: center;
+  padding: 64px 20px;
+  background: linear-gradient(to bottom, var(--section-bg), var(--bg));
+}
+
+.hero h1 {
+  font-size: 1.8rem;
+  max-width: 720px;
+  margin: 0 auto 0.6em;
+}
+
+.hero p {
+  max-width: 560px;
+  margin: 0 auto 1.5em;
+}
+
+.button {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* セクション共通 */
+.section {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 56px 20px;
+}
+
+.section h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1em;
+}
+
+/* こだわり */
+.about-list {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+
+.about-item {
+  background: var(--section-bg);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.about-item h3 {
+  font-size: 1.1rem;
+}
+
+.about-item p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+@media (min-width: 768px) {
+  .about-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* メニュー */
+.menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+}
+
+.menu-item {
+  padding: 20px;
+  border-bottom: 1px solid var(--section-bg);
+}
+
+.menu-name {
+  font-size: 1.05rem;
+  margin-bottom: 0.3em;
+}
+
+.menu-desc {
+  margin: 0 0 0.5em;
+  font-size: 0.9rem;
+}
+
+.menu-price {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 700;
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .menu-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* アクセス */
+.access-list {
+  max-width: 480px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px 0;
+}
+
+.access-list dt {
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.access-list dd {
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .access-list {
+    grid-template-columns: 120px 1fr;
+    gap: 12px 16px;
+    align-items: start;
+  }
+
+  .access-list dt {
+    margin-top: 0;
+  }
+}
+
+/* フッター */
+.site-footer {
+  text-align: center;
+  padding: 32px 20px;
+  background: var(--section-bg);
+  font-size: 0.85rem;
+}
+
+.site-footer p {
+  margin: 0.3em 0;
+}
